@@ -1,0 +1,47 @@
+body {
+    background-color: #DFE0DD;
+    margin: 5%;
+    border: solid #5A2929;
+
+
+}
+
+form {
+    padding: 50px;
+    background-color: #C4BDB4;
+}
+
+h1 {
+    background-color: #4D473F;
+    color: #988E81;
+    text-align: center;
+    margin: 0px;
+    padding: 25px;
+
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+select,
+input {
+    font-size: large;
+    width: 175px;
+}
+
+select {
+    width: 175px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 175px;
+}
+
+.resultat {
+    background-color: #C4BDB4;
+    padding: 15px;
+}
