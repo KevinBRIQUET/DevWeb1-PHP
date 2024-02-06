@@ -1,7 +1,18 @@
+
+h1 {
+    background-color: #4D473F;
+    color: #988E81;
+    text-align: center;
+    margin: 0px;
+    padding: 25px;
+    font-size: 40px;
+}
+
+
 body {
-    background-color: #DFE0DD;
-    margin: 5%;
-    border: solid #5A2929;
+    background-color: whitesmoke;
+    margin: 2%;
+    border: solid #988E81 5px;
 
 
 }
@@ -11,14 +22,7 @@ form {
     background-color: #C4BDB4;
 }
 
-h1 {
-    background-color: #4D473F;
-    color: #988E81;
-    text-align: center;
-    margin: 0px;
-    padding: 25px;
 
-}
 
 ul {
     list-style: none;
@@ -41,7 +45,30 @@ input[type="submit"] {
     width: 175px;
 }
 
+.erreur {
+    color: red;         
+
+}
+
 .resultat {
+    color: green;  
+}
+
+.erreur,
+.resultat {
+    font-weight: bold;  
     background-color: #C4BDB4;
-    padding: 15px;
+    margin: 0;
+    padding: 2%;
+    text-align: center;
+    font-size: 30px;
+}
+
+img {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 20%;
+    height: 20%;
+    
 }

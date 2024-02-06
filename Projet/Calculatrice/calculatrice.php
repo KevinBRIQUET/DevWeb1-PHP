@@ -1,3 +1,45 @@
+<!-- __________________________ PHP ___________________________ -->
+
+
+<?php
+$resultat = null; 
+$messageErreur = "";  
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nombre1"], $_GET["nombre2"], $_GET["operation"])) {
+    $nombre1 = $_GET["nombre1"];
+    $nombre2 = $_GET["nombre2"];
+    $operation = $_GET["operation"];
+
+    // Vérifiez si les deux variables sont numériques
+    if (is_numeric($nombre1) && is_numeric($nombre2)) {  // Si l'op n'utilise pas de chiffre, ça renvoit au message d'erreur en else
+        switch ($operation) {
+            case 'addition':
+                $resultat = $nombre1 + $nombre2;
+                break;
+            case 'soustraction':
+                $resultat = $nombre1 - $nombre2;
+                break;
+            case 'multiplication':
+                $resultat = $nombre1 * $nombre2;
+                break;
+            case 'division':
+                if ($nombre2 != 0) {                  // si le nombre2 est zéro alors ça renvoit au message d'erreur en else
+                    $resultat = $nombre1 / $nombre2;
+                } else {
+                    $messageErreur = "Impossible de diviser par zéro !";
+                }
+                break;
+            default:
+                $messageErreur = "Opérateur non valide.";
+        }
+    } else {
+        $messageErreur = "Veuillez n'écrire que des nombres !";
+    }
+}
+?>
+
+
+
 <!-- __________________________ HTML ___________________________ -->
 
 <!DOCTYPE html>
@@ -44,44 +86,21 @@
         </ul>
     </form>
 
+<!-- _________________ Les résultats en PHP _____________ -->
+
+<?php
+// Affichage des résultats ou des erreurs
+if ($resultat !== null) {
+    echo "<p class='resultat'>Le résultat de  est : $resultat <img src='pouce_haut.png'></p>";
+} elseif ($messageErreur != "") {
+    echo "<p class='erreur'>$messageErreur <img src='T800-deg.png'></p>";
+}
+// Si aucune des conditions ci-dessus n'est vraie, rien ne s'affiche.
+?>
+
+
+
 </body>
 
 </html>
 
-<!-- __________________________ PHP ___________________________ -->
-
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "GET") {                             // Vérifie si on est bien passer par un formulaire HTML de type GET
-    $nombre1 = isset($_GET["nombre1"]) ? $_GET["nombre1"] : null;      // Recupère le nombre écrit dans le input nombre 1 et le met dans une variable
-    $nombre2 = isset($_GET["nombre2"]) ? $_GET["nombre2"] : null;      // Recupère le nombre écrit dans le input nombre 2 et le met dans une variable
-    $operation = isset($_GET["operation"]) ? $_GET["operation"] : null;  // Recupère l'opérateur écrit dans le input nombre 1 et le met dans une variable
-
-
-    switch ($operation) {                  // switch permet de remplacer if, on met les conditions dans des cases
-        case 'addition':
-            $resultat = $nombre1 + $nombre2;
-            break;
-        case 'soustraction':
-            $resultat = $nombre1 - $nombre2;
-            break;
-        case 'multiplication':
-            $resultat = $nombre1 * $nombre2;
-
-            break;
-        case 'division':
-            if ($nombre2 != 0) {
-                $resultat = $nombre1 / $nombre2;
-            } else {
-                echo "Erreur: Impossible de diviser par zéro !";
-            }
-            break;
-        default:                              // Si on rentre autre chose que les 4 opérateurs
-            echo "Opérateur non valide.";
-    }
-
-    if (isset($resultat)) {
-        echo "Résultat : $resultat";
-    }
-}
-?>
