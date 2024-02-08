@@ -2,8 +2,12 @@
 
 
 <?php
-$resultat = null; 
-$messageErreur = "";  
+$resultat = null;
+$messageErreur = "";
+
+
+// Le REQUEST est la superglobale qui vérifie si la méthode de requete est bien GET
+// Le isset empêche la requête de se faire si un des champs "nombre" est null
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nombre1"], $_GET["nombre2"], $_GET["operation"])) {
     $nombre1 = $_GET["nombre1"];
@@ -67,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nombre1"], $_GET["nombre
 
             <li> <!-- opérateur -->
                 <label for="Choisir l'opération"> </label>
-                <select id="operation" name="operation" required>             <!-- Créé la case des opérations -->                      
+                <select id="operation" name="operation" required> <!-- Créé la case des opérations -->
                     <option value="addition">+</option>
                     <option value="soustraction">-</option>
                     <option value="multiplication">*</option>
@@ -77,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nombre1"], $_GET["nombre
 
             <li> <!-- nombre 2 -->
                 <label for="Ecrire le deuxième nombre"></label>
-                <input type="text" id="nombre2" placeholder="Nombre 2" name="nombre2" required />  <!-- Créé la case nombre 2 -->
+                <input type="text" id="nombre2" placeholder="Nombre 2" name="nombre2" required /> <!-- Créé la case nombre 2 -->
             </li>
 
             <li> <!-- égal-->
@@ -86,21 +90,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["nombre1"], $_GET["nombre
         </ul>
     </form>
 
-<!-- _________________ Les résultats en PHP _____________ -->
+    <!-- _________________ Les résultats en PHP _____________ -->
 
-<?php
-// Affichage des résultats ou des erreurs
-if ($resultat !== null) {
-    echo "<p class='resultat'>Le résultat de  est : $resultat <img src='pouce_haut.png'></p>";
-} elseif ($messageErreur != "") {
-    echo "<p class='erreur'>$messageErreur <img src='T800-deg.png'></p>";
-}
-// Si aucune des conditions ci-dessus n'est vraie, rien ne s'affiche.
-?>
+    <?php
+    // Affichage des résultats ou des erreurs
+    if ($resultat !== null) {      // vérifie si le résultat n'est pas null
+        echo "<p class='resultat'>Le résultat est : $resultat <img src='pouce_haut.png'></p>";
+    } elseif ($messageErreur != "") {
+        echo "<p class='erreur'>$messageErreur <img src='T800-deg.png'></p>";
+    }
+    // Si aucune des conditions ci-dessus n'est vraie, rien ne s'affiche.
+    ?>
 
 
 
 </body>
 
 </html>
-
