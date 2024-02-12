@@ -7,9 +7,6 @@ body{
     margin: 0;
 }
 
-h1{
-    text-align: center;
-}
 
 .container{
     max-width: 1440px;
@@ -23,7 +20,7 @@ h1{
 
 .flex-col{
     width: 25%;
-    padding: 0.5rem;
+    padding: 0.5em;
 }
 
 @media screen and (max-width: 767px){

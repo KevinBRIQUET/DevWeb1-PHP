@@ -1,6 +1,5 @@
-<?php 
+<?php
 
-// Traitements et/ou préparations des données
 $stagiaires = [
     [
         'nom' => 'COQUATRIX',
@@ -81,6 +80,3 @@ $stagiaires = [
         'taille' => 162
     ]
 ];
-
-// Affichage du template HTML
-require 'templates/home.html.php';
