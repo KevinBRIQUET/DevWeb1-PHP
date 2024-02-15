@@ -34,3 +34,8 @@ body{
     padding: 1em;
     overflow: hidden;
 }
+
+h1 {
+    margin: 5px;
+    padding: 5px;
+}

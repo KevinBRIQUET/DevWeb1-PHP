@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // On vérifie que le paramètre est bien présent dans l'URL
 if(isset($_GET['id'])){
 
@@ -10,9 +12,7 @@ if(isset($_GET['id'])){
 
     if($meal)
     {
-
         $title = "Détail de " . $meal['name'];
-
         require 'templates/details.html.php';
     }
     else 
