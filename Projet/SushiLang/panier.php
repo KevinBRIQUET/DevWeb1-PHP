@@ -16,7 +16,7 @@ if(isset($_SESSION['cart']))
         $meal['name'] = $data['name'];
         $meal['price'] = $data['price'];
         $meal['photo'] = $data['photo'];
-        $meal['total'] = $data['price'] * $meal['qty'];
+        $meal['total'] = number_format($data['price'] * $meal['qty'],2);
 
         $totalCart += $meal['total'];
 

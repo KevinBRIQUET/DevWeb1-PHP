@@ -1,13 +1,27 @@
 <?php 
 
+session_start();
+
 require 'data/db-connect.php';
 
 $title = "Accueil";
 
+// Pagination
+
 $nbPerPage = 12;
 
-$query = $dbh->query("SELECT COUNT(*) AS nbStagiaires FROM stagiaire");
-$nbPages = ceil($query->fetch()['nbStagiaires'] / $nbPerPage);
+if(!empty($_GET['search']))
+{
+    $search = strtolower($_GET['search']);
+    $query = $dbh->query("SELECT COUNT(*) AS nbmeals FROM meal WHERE name LIKE '%$search%'");
+}
+else
+{
+    $query = $dbh->query("SELECT COUNT(*) AS nbmeals FROM meal");
+}
+
+
+$nbPages = ceil($query->fetch()['nbmeals'] / $nbPerPage);
 $start = 0;
 $currentPage = 1;
 
@@ -21,15 +35,18 @@ if(!empty($_GET['page']))
 if(!empty($_GET['search']))
 {
     $search = strtolower($_GET['search']);
-    $query = $dbh->query("SELECT * FROM stagiaire WHERE nom LIKE '%$search%' OR prénom LIKE '%$search%' ORDER BY nom ASC LIMIT $start,$nbPerPage");
-    $stagiaires = $query->fetchAll();
-    $resultCount = count($stagiaires);
+    $query = $dbh->query("SELECT * FROM meal WHERE name LIKE '%$search%' ORDER BY name ASC LIMIT $start,$nbPerPage");
+    $meals = $query->fetchAll();
+
+    // namebre de résultats totales
+    $query = $dbh->query("SELECT COUNT(*) AS resultCount FROM meal WHERE name LIKE '%$search%'");
+    $resultCount = $query->fetch()['resultCount'];
 }
 else
 {
 
-    $query = $dbh->query("SELECT * FROM stagiaire ORDER BY nom ASC LIMIT $start,$nbPerPage");
-    $stagiaires = $query->fetchAll();
+    $query = $dbh->query("SELECT * FROM meal ORDER BY name ASC LIMIT $start,$nbPerPage");
+    $meals = $query->fetchAll();
 }
 
 // Affichage du template HTML

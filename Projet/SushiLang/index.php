@@ -38,7 +38,7 @@ if(!empty($_GET['search']))
     $query = $dbh->query("SELECT * FROM meal WHERE name LIKE '%$search%' ORDER BY name ASC LIMIT $start,$nbPerPage");
     $meals = $query->fetchAll();
 
-    // nombre de résultats totales
+    // namebre de résultats totales
     $query = $dbh->query("SELECT COUNT(*) AS resultCount FROM meal WHERE name LIKE '%$search%'");
     $resultCount = $query->fetch()['resultCount'];
 }
