@@ -4,11 +4,18 @@ if(!empty($_GET['id']))
 {
     require 'data/db-connect.php';
 
-    $query = $dbh->query("SELECT * FROM category LEFT JOIN meal ON meal.id_category = category.id_category WHERE category.id_category = " . $_GET['id']);
-    $meals = $query->fetchAll();
+    // On vérifie si la catégorie existe
+    $query = $dbh->query("SELECT * FROM category WHERE category.id_category = " . $_GET['id']);
+    $categorie = $query->fetch();
 
-    if(count($meals) > 0)
+    if($categorie)
     {
+        $title = $categorie['name'];
+        $description = $categorie['description'];
+
+        $query = $dbh->query("SELECT * FROM meal WHERE id_category = " . $categorie['id_category']);
+        $meals = $query->fetchAll();
+
         require 'templates/categorie.html.php';
     }
     else
