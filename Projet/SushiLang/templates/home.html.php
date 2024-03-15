@@ -13,7 +13,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="card h-100" 
                     data-aos="fade-down">
-                    <img src="<?= $meal['photo'] ?>" class="card-img-top" alt="<?= $meal['name'] ?>">
+                    <img data-src="<?= $meal['photo'] ?>" class="card-img-top" alt="<?= $meal['name'] ?>">
                     <div class="card-body">
                         <h3><?= $meal['name'] ?></h3>
                         <p><?= $meal['price'] ?> €</p>
@@ -26,7 +26,6 @@
             <?php endforeach; ?>
         </div>
 
-        
         <div class="">
             <nav aria-label="Page navigation ">
                 <ul
