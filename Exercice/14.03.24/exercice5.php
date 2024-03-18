@@ -14,9 +14,20 @@ Vous devez ajouter une couleur de fond sur chaque ligne paires du tableau -->
 
 
 
+
 </head>
 <body>
     
+
+echo "<table>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Âge</th>
+            <th>Statut</th>
+        </tr>";
+
+
 <?php
 
 $trainees = [
