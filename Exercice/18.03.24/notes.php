@@ -37,18 +37,7 @@ $moyenne = $somme / $nb_notes;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Notes</title>
 
-<style>
 
-.rouge {
-    color: red;
-}
-
-.vert {
-    color: green;
-}
-
-
-</style>
 
 </head>
 <body>
@@ -75,3 +64,18 @@ $moyenne = $somme / $nb_notes;
 
 </body>
 </html>
+
+<style>
+
+.rouge {
+    color: red;
+}
+
+.vert {
+    color: green;
+}
+
+
+
+
+</style>

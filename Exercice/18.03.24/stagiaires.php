@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 <h2>Liste des stagiaires</h2>
-<table border="1">
+<table>
     <tr>
         <th>Nom</th>
         <th>Prénom</th>

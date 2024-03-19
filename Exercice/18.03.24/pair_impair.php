@@ -12,6 +12,7 @@ foreach ($nombres as $nombre)
         $impair[] = $nombre;
     }
 
+
 ?>
 
 
@@ -26,7 +27,7 @@ foreach ($nombres as $nombre)
 </head>
 <body>
     
-<table class="table stripped">
+<table class="table">
     <tr>
         <th>Pair</th>
         <th>Impair</th>
