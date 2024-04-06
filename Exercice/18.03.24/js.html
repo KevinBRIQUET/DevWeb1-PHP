@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire JavaScript</title>
+</head>
+<body>
+    <h2>Formulaire JavaScript</h2>
+    <form id="myForm">
+        <label for="nom">Nom :</label><br>
+        <input type="text" id="nom" name="nom"><br><br>
+
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+            // Récupérer les valeurs des champs
+            var nom = document.getElementById("nom").value;
+            var email = document.getElementById("email").value;
+
+            // Vérifier si les champs sont vides
+            if (nom.trim() === "" || email.trim() === "") {
+                alert("Veuillez remplir tous les champs.");
+                return;
+            }
+
+            // Afficher les données soumises
+            console.log("Nom :", nom);
+            console.log("Email :", email);
+
+            // Vous pouvez envoyer les données à un serveur ici si nécessaire
+            // Par exemple : utiliser XMLHttpRequest ou fetch pour envoyer les données à un serveur PHP
+
+            // Réinitialiser le formulaire après soumission
+            document.getElementById("myForm").reset();
+        });
+    </script>
+</body>
+</html>

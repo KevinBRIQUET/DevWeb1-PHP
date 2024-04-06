@@ -10,7 +10,7 @@
 <?php
 
 // 1. Créez un tableau contenant le nom de quelques fruits
-$fruits = array("Pomme", "Banane", "Orange", "Fraise", "Kiwi");
+$fruits = ["Pomme", "Banane", "Orange", "Fraise", "Kiwi"];
 
 // 2. Affichez le contenu du tableau en utilisant une boucle foreach
 echo "Liste des fruits : <br>";
