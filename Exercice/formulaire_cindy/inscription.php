@@ -1,10 +1,15 @@
 <?php
 
+// Récuperer la base de donnée
 require 'db-connect.php';
+
+// Initialiser la variable error dans un tableau vide
 $error = [];
 
+// Si l'utilisateur a bien envoyé le formulaire avec le bouton ok 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
+// Vérifification du champ email
     if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['mdp'])) {
 
         if (empty($_POST['prenom'])) {

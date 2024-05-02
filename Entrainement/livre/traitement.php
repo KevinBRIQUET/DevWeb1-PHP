@@ -16,12 +16,12 @@ $genre =$_POST['genre'];
 
 if(!empty($livre) && !empty($auteur) && !empty($parution) && !empty($genre)) {
 } else {
-            echo "VEuillez remplir tout les champs";
+            echo "Veuillez remplir tout les champs";
             die;
 }
 }
 
-$requete = $bdd->prepare("INSERT INTO livre VALUE (0, :livre, :auteur, :parution, :genre)");
+$requete = $bdd->prepare("INSERT INTO livre (livre,auteur,parution,genre) VALUES (:livre, :auteur, :parution, :genre)");
 $requete->execute([
     "livre" => $livre,
     "auteur" => $auteur,
